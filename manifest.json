@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "ShortScroller",
+  "version": "1.0",
+  "description": "Auto scroll your Youtube Shorts feed",
+  "permissions": ["activeTab", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["scroll.js"],
+      "matches": ["https://www.youtube.com/shorts/*"]
+    }
+  ]
+}
