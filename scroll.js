@@ -1,9 +1,5 @@
 function waitUntil(selector) {
   return new Promise((resolve) => {
-    if (document.querySelector(selector)) {
-      return resolve(document.querySelector(selector));
-    }
-
     const observer = new MutationObserver((mutations) => {
       if (document.querySelector(selector)) {
         observer.disconnect();
@@ -20,7 +16,7 @@ function waitUntil(selector) {
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "executeScript") {
-    waitUntil(".YtPlayerProgressBarDragContainer").then((scrubber) => {
+    waitUntil(".ytPlayerProgressBarDragContainer").then((scrubber) => {
       console.log(`ShortScroller: auto scroll for ${message.url}`);
 
       let observer;
